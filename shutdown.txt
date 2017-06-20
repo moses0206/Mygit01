@@ -13,3 +13,4 @@ shutdown -h 10 10分钟后自动关机
 如果是通过shutdown命令设置重启的话，可以用shutdown -c命令取消重启
 
 ##this is a test
+##this is a2 test
