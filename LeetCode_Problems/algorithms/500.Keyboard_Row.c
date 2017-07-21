@@ -3,61 +3,47 @@
 #include <stdlib.h>
 
 char** findWords(char** words, int wordsSize, int* returnSize) {
-    unsigned int list[26] = { 1, 0, 0, 1, 2, 1, 1, 1, 2, 1, 1, 1, \
-        0, 0, 2, 2, 2, 2, 1, 2, 2, 0, 2, 0, 2, 0};
-    int i;
-    int flag[1000] = {0};
-    char *p;
-    for (i = 0; i < wordsSize; i++) {
-        p = words[i];
-        flag[i] = 1;
-        unsigned int tmp = ( (*p >= 'a') ? list[(*p - 'a')] : list[(*p - 'A')]);
-        while(*p != '\0') {
-            if ( *p >= 'a')
-                if ( list[(*p - 'a')] != tmp) {
-                    flag[i] = 0;
-                    break;
-                }else {
-                    p++;
-                    continue;
-                }
-            if ( list[(*p - 'A')] != tmp) {
-                flag[i] = 0;
+    unsigned int matrix[26] = {1, 0, 0, 1, 2, 1, 1, 1, 2, 1, 1, 1, 0, 0, 2, 2, 2, 2, 1, 2, 2, 0, 2, 0, 2, 0};
+    if(wordsSize <= 0) return NULL;
+    int flag[wordsSize];
+    int index, count = 0;
+    for(index = 0; index < wordsSize; index++) {
+        char* p = words[index];
+        unsigned int temp = ((*p >= 'a') ? matrix[*p - 'a'] : matrix[*p - 'A']);
+        while( *p != '\0') {
+            if( (*p > 'Z' && temp != matrix[*p - 'a']) || (*p < 'a' && temp != matrix[*p - 'A'])){
                 break;
-            }else {
+            }else{
                 p++;
                 continue;
             }
         }
+        if(*p == '\0') {
+            count++;
+            flag[index] = 1;
+        }else 
+            flag[index] = 0;
     }
-    int rtsize = 0;
-    for (i = 0; i < wordsSize; i++)
-        rtsize += flag[i];
-    *returnSize = rtsize;
-    char **rt;
-    if (rtsize == 0) return NULL;
-    rt = (char **)malloc(sizeof(char*) * rtsize);
-    printf("rt = %p\n", rt);
-    int j = 0;
-    for ( i = 0; i < wordsSize; i++){
-        if (!flag[i]) {  continue;}
-        printf("rt[%d] = %p\n", j, rt + j);
-        *(rt + j) = (char *)malloc(strlen(words[i]) + 1);
-        strncpy(*(rt + j), words[i], strlen(words[i]));
-        *(*(rt + j) + strlen(words[i])) = '\0';
-        j++;
+    * returnSize = count;
+    if(count == 0) return NULL;
+    char ** p = (char **)malloc(count * sizeof(char*));
+
+    for(index = 0, count = 0; index < wordsSize; index++) {
+        if(!flag[index]) continue;
+        *(char**)(p + count) = (char*)malloc(strlen(words[index]) + 1);
+        strncpy(*(char**)(p + count), words[index], strlen(words[index]));
+        *(*(char**)(p + count) + strlen(words[index])) = '\0';
+        count++;
     }
-    return rt;
+    return p;
 }
 
 void main(void) {
-    char* words[4] = {"Hello", "Alaska", "Dad", "Peace" };
-    int i;
-    int  returnSize;
-    char ** pp = findWords(words, 4, &returnSize);
-    printf("returnSize = %d\n", returnSize);
-    for(i = 0; i < returnSize; i++)
-        printf("%s\n", pp[i]);
+    char * test[4] = {"Hello", "Alaska", "Dad", "Peace"};
+    int count;
+    char ** result = findWords(test, 4, &count);
+    while( count > 0){
+        printf("%s\n", result[count - 1]);
+        count--;
+    }
 }
-
-
