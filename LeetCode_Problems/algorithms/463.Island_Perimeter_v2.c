@@ -31,6 +31,21 @@ int islandPerimeter(int** g, int r, int c) {
     }
     free(wreath);
     return count;
+
+/*  下面是我知道的最好的解法
+    int ii, jj, ct = 0;
+    for(ii = 0; ii < r; ii++) {
+        for(jj = 0; jj < c; jj++) {
+            if(g[ii][jj]) {
+                if(ii == 0 || !g[ii-1][jj]) ct++;
+                if(ii == r-1 || !g[ii+1][jj]) ct++;
+                if(jj == 0 || !g[ii][jj-1]) ct++;
+                if(jj == c-1 || !g[ii][jj+1]) ct++;
+            }
+        }
+    }
+    return ct;
+*/
 }
 
 void main(void) {
