@@ -3,3 +3,4 @@ gcc wangm.c -I../easy/base/ -L../easy/ -lz_easy -o wangm
     -L  :behind the parameter is a path that your need link static library place.
     -l  :behind the parameter is a static library name, not file's name, is a library's name. file's name is <libz_easy.a>.
     -o  :output file's name.
+    -O1 :Optimization level is 1.
