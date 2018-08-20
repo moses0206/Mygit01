@@ -17,8 +17,8 @@ struct ListNode *getIntersectionNode(struct ListNode *headA, struct ListNode *he
         lenB++;
         tempB = tempB->next;
     }
-    r = i > j ? i-j : j-i;
-    if (i > j) {
+    r = lenA > lenB ? lenA - lenB : lenB - lenA;
+    if (lenA > lenB) {
         while(r--) headA = headA->next;
     } else {
         while(r--) headB = headB->next;
