@@ -11,19 +11,19 @@ struct TreeNode {
     struct TreeNode *right;
 };
 */
-int getTreeDeep(struct TreeNode *node, int up_deep, int *size) {
-    if(!node) return up_deep;
+int getTreeDeep(struct TreeNode *node, int up_depth, int *size) {
+    if(!node) return up_depth;
     printf("node->val = %d\n", node->val);
-    up_deep++;
-    (*size)++;    
-    int l_deep = getTreeDeep(node->left, up_deep, size);
-    int r_deep = getTreeDeep(node->right, up_deep, size);
-    return l_deep > r_deep ? l_deep : r_deep;
+    up_depth++;
+    (*size)++;      /////////////////////////////这里切记要加括号，不加括号会出大问题的。切记切记切记！！！！！////////////
+    int l_depth = getTreeDeep(node->left, up_depth, size);
+    int r_depth = getTreeDeep(node->right, up_depth, size);
+    return l_depth > r_depth ? l_depth : r_depth;
 }
 
 typedef struct wm_queue {
     struct TreeNode *node_;
-    int deep_;
+    int depth_;
 } wm_queue_t;
 
 typedef struct wm_array {
@@ -36,11 +36,11 @@ typedef struct wm_array {
 static int preFill(TreeNode_t *node, wm_array_t *arr) {
     wm_queue_t *que = malloc(16 * sizeof(wm_queue_t));
     wm_queue_t *que_node = calloc(1, sizeof(wm_queue_t));
-    int i = 0 , deep = 1;
+    int i = 0 , depth = 1;
     int front = 0, rear = 0;
     //将根节点入队
     (que[rear]).node_ = node;
-    (que[rear]).deep_ = deep;
+    (que[rear]).depth_ = depth;
     rear = (rear + 1) % 16;
     int pos = 0;
     int count = 0;
@@ -53,23 +53,23 @@ static int preFill(TreeNode_t *node, wm_array_t *arr) {
         front = (front + 1) % 16;
         if(que_node->node_ != NULL) {
             //访问取出的结点
-            if(que_node->deep_ > deep) {      //如果该结点是下一层结点，则在arr中插入一个空结点
+            if(que_node->depth_ > depth) {      //如果该结点是下一层结点，则在arr中插入一个空结点
                 arr[pos].val_ = count;
                 arr[i].is_null_ = 1;
                 pos = i;
                 i++;
                 count = 0;
-                deep = que_node->deep_;
+                depth = que_node->depth_;
             }
             count++;
             arr[i++].val_ = que_node->node_->val;     //访问取出的结点，让val存到arr中。
             //将左子节点入队列
             (que[rear]).node_ = que_node->node_->left;
-            (que[rear]).deep_ = que_node->deep_ + 1;
+            (que[rear]).depth_ = que_node->depth_ + 1;
             rear = (rear + 1) % 16;
             //将右子节点入队列
             (que[rear]).node_ = que_node->node_->right;
-            (que[rear]).deep_ = que_node->deep_ + 1;
+            (que[rear]).depth_ = que_node->depth_ + 1;
             rear = (rear + 1) % 16;
         }
     }
@@ -81,27 +81,27 @@ static int preFill(TreeNode_t *node, wm_array_t *arr) {
 int** levelOrderBottom(struct TreeNode* root, int** columnSizes, int* returnSize) {
     if(root == NULL) return NULL;
     int tree_size = 0;
-    int deep = getTreeDeep(root, 0, &tree_size);
-    wm_array_t * arr = calloc(1, (tree_size + deep + 1) * sizeof(wm_array_t));
+    int depth = getTreeDeep(root, 0, &tree_size);
+    wm_array_t * arr = calloc(1, (tree_size + depth + 1) * sizeof(wm_array_t));
     if(arr == NULL) return NULL;
     int size = preFill(root, arr);
     int i = 0, j = 0, k = 0;
     int * t = NULL;
-    int *col_size = calloc(1, deep * sizeof(int));
-    int **rt = calloc(1, deep * sizeof(int *));
+    int *col_size = calloc(1, depth * sizeof(int));
+    int **rt = calloc(1, depth * sizeof(int *));
     for(i = 0; i < size; i++) {
         if(arr[i].is_null_ == 1) {
             t = calloc(1, arr[i].val_ * sizeof(int));
             k++;
-            rt[deep-k] = t;
-            col_size[deep-k] = arr[i].val_;
+            rt[depth-k] = t;
+            col_size[depth-k] = arr[i].val_;
             j = 0;
             continue;
         }
         t[j++] = arr[i].val_;
     }
     free(arr);
-    *returnSize = deep;
+    *returnSize = depth;
     *columnSizes = col_size;
     return rt;
 }
