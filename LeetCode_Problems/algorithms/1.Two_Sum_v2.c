@@ -36,7 +36,7 @@ int* twoSum(int* nums, int numsSize, int target) {
     return rt;
 }
 
-void main(void) {
+int main(void) {
     int nums[5] = {-1, -2, -3, -4, -5};
     int* rt;
     rt = twoSum(nums, 5, -8);

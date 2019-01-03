@@ -25,7 +25,7 @@ static TreeNode_t* init_TreeNode(int n, int d) { // n - val's number; d - depth;
     return tn;
 }
 
-void main(void) {
+int main(void) {
     TreeNode_t* test;
     test = init_TreeNode(1, 7);
     printf("TreeNode* test's depth = %d\n", maxDepth(test));

@@ -22,7 +22,7 @@ int** matrixReshape(int** nums, int numsRowSize, int numsColSize, int r, int c, 
     return rt;
 }
 
-void main(void){
+int main(void){
     int **test = (int **)malloc(2 * sizeof(int*));
     test[0] = (int*)malloc(3 * sizeof(int));
     test[1] = (int*)malloc(3 * sizeof(int));

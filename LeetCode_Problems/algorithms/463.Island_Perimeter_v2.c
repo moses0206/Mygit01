@@ -48,7 +48,7 @@ int islandPerimeter(int** g, int r, int c) {
 */
 }
 
-void main(void) {
+int main(void) {
     int ** test;
     test = (int**)malloc(4 * sizeof(int*));
     test[0] = (int*)malloc(4 * sizeof(int));

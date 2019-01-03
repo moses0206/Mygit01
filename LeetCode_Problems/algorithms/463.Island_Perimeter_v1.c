@@ -87,7 +87,7 @@ int islandPerimeter(int** grid, int gridRowSize, int gridColSize) {
     return (count < 4 && count > 0)? 4 : count;
 }
 
-void main(void) {
+int main(void) {
     int ** test;
     test = (int**)malloc(4 * sizeof(int*));
     test[0] = (int*)malloc(4 * sizeof(int));

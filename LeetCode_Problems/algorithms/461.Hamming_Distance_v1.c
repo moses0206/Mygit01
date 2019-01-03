@@ -13,5 +13,5 @@ int hammingDistance(int x, int y) {
     return num;
 }
 
-void main(void) {
+int main(void) {
 }

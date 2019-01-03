@@ -10,7 +10,7 @@ int singleNumber(int *n, int ns) {
     return rt;
 }
 
-void main(void) {
+int main(void) {
     int test[9] = {2, 5, 8, 2, 4, 3, 4, 5, 8};
     int i;
     printf("test[9] = { ");

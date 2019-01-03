@@ -57,6 +57,6 @@ double* averageOfLevels(struct TreeNode* root, int* returnSize) {
     return rt; 
 }
 
-void main(void){
+int main(void){
 
 }

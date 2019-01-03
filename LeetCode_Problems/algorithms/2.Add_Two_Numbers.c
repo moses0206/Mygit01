@@ -33,7 +33,7 @@ struct ListNode* addTwoNumbers(struct ListNode* l1, struct ListNode* l2) {
     return rt;
 }
 
-void main(void) {
+int main(void) {
 
 }
 

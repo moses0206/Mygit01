@@ -27,7 +27,7 @@ char** fizzBuzz(int n, int* returnSize) {
     return rt;
 }
 
-void main(void) {
+int main(void) {
     int rs, i;
     char ** rt = fizzBuzz(60, &rs);
     for(i = 0; i < rs; i++) {

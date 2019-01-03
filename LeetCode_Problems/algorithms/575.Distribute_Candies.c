@@ -13,7 +13,7 @@ int distributeCandies(int* candies, int candiesSize) {
     return candiesSize/2 > count ? count : candiesSize/2;
 }
 
-void main(void) {
+int main(void) {
     int test[] = {1, 2, 3, 2 ,1 ,3 ,5, 2, 7, 9, 1, 2, 2, 3, 8, 1};
     printf("candies type = %d\n", distributeCandies(test, 16));
 }

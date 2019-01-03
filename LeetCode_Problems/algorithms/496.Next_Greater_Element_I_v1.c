@@ -24,7 +24,7 @@ int* nextGreaterElement(int* fn, int fns, int* n, int ns, int* rts) {
     return rt;
 }
 
-void main(void) {
+int main(void) {
 //    int *nums1, *nums2;
 //    nums1 = (int*)malloc(6 * sizeof(int));
 //    nums2 = (int*)malloc(12 * sizeof(int));

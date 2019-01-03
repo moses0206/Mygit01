@@ -15,7 +15,7 @@ char* reverseString(char* s) {
     return rt;
 }
 
-void main(void) {
+int main(void) {
     char * test = "i'm a man";
     char * rt;
     rt = reverseString(test);

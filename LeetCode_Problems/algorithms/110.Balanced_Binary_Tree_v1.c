@@ -1,7 +1,7 @@
 #include <stdbool.h>
 #include "StringToTree.c"
 
-getTreeDeep(struct TreeNode* tree, int* depth) {
+bool getTreeDeep(struct TreeNode* tree, int* depth) {
     if(tree == NULL) return true;
     int l_depth = 0, r_depth = 0;
     if(false == getTreeDeep(tree->left, &l_depth)) return false;
@@ -17,7 +17,7 @@ bool isBalanced(struct TreeNode* root) {
     return getTreeDeep(root, &depth);
 }
 
-void main(void) {
+int main(void) {
     TreeNode_t *root = NULL;
     int size = string_to_tree(&root, "wangmao.txt");
     int flag = isBalanced(root);

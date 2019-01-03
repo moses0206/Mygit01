@@ -38,7 +38,7 @@ char** findWords(char** words, int wordsSize, int* returnSize) {
     return p;
 }
 
-void main(void) {
+int main(void) {
     char * test[4] = {"Hello", "Alaska", "Dad", "Peace"};
     int count;
     char ** result = findWords(test, 4, &count);

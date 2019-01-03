@@ -19,7 +19,7 @@ int* twoSum(int* nums, int numsSize, int target) {
 }
 
 
-void main(void) {
+int main(void) {
     int nums[4] = {2, 7, 11, 15};
     int* rt;
     rt = twoSum(nums, 4, 26);

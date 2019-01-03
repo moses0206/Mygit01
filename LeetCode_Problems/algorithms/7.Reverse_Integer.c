@@ -1,5 +1,5 @@
 #include <stdio.h>
-void main(void) {
+int main(void) {
     int a;
     a = reverse(-2147483648);
     printf("a = %d\n", a);

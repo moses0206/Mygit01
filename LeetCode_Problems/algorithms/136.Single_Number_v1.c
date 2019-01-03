@@ -29,7 +29,6 @@ int singleNumber(int* nums, int numsSize) {
     if(!(numsSize%2)) return 0;
     q_sort(nums, 0, numsSize-1);
     int i;
-    int rt;
     for(i = 1; i < numsSize; i+=2) {
         if(nums[i] != nums[i-1]) {
             return nums[i-1];
@@ -38,5 +37,5 @@ int singleNumber(int* nums, int numsSize) {
     return nums[i-1];
 }
 
-void main(void) {
+int main(void) {
 }

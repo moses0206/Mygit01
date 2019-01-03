@@ -34,7 +34,7 @@ char* reverseWords(char* s) {
     return rt;
 }
 
-void main(void) {
+int main(void) {
     char * test = "Let's take LeetCode contest";
     char * rt;
     puts(test);
