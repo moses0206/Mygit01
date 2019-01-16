@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include "StringToTree.h"
 
 #define READ_SIZE 12
 #define QUEUE_SIZE 1024
@@ -26,18 +27,11 @@ s2t_rt_code_t rt[] = {
     {0, NULL}
 };
 
-struct TreeNode {
-    int val;
-    struct TreeNode *left;
-    struct TreeNode *right;
-};
 
 typedef struct tmp_queue {
     struct TreeNode *node_;
     int is_has_lchild_;
 } tmp_queue_t;
-
-typedef struct TreeNode TreeNode_t;
 
 int string_to_tree(TreeNode_t **rt_node, const char * file_name) {
     FILE * fd = NULL;
