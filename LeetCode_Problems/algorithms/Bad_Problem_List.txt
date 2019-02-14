@@ -12,3 +12,8 @@ Difficulty
         88.Merge Sorted Array
         237.Delete Node in a Linked List
         263.Ugly Number
+        303.Range Sum Query - Immutable
+        326.Power of Three
+        345.Reverse Vowels of a String
+        349.Intersection of Two Arrays
+
