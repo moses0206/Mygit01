@@ -16,4 +16,6 @@ Difficulty
         326.Power of Three
         345.Reverse Vowels of a String
         349.Intersection of Two Arrays
+        371.Sum of Two Integers    
+        374.Guess Number Higher or Lower
 
