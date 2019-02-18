@@ -18,4 +18,6 @@ Difficulty
         349.Intersection of Two Arrays
         371.Sum of Two Integers    
         374.Guess Number Higher or Lower
+        400. Nth Digit
+        401. Binary Watch
 
