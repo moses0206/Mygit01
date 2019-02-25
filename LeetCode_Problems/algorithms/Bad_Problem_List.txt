@@ -20,4 +20,5 @@ Difficulty
         374.Guess Number Higher or Lower
         400. Nth Digit
         401. Binary Watch
+        414. Third Maximum Number
 
