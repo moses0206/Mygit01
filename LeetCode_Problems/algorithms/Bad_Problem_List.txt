@@ -18,7 +18,8 @@ Difficulty
         349.Intersection of Two Arrays
         371.Sum of Two Integers    
         374.Guess Number Higher or Lower
-        400. Nth Digit
-        401. Binary Watch
-        414. Third Maximum Number
-
+        400.Nth Digit
+        401.Binary Watch
+        414.Third Maximum Number
+        427.Construct Quad Tree
+        434. Number of Segments in a String
